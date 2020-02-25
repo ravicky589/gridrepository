@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Students Data</title>
+    {% include 'studentsdata/cdnlines.html' %}
+</head>
+<body>
+<style>
+    body{
+        background-color: lightblue;
+    }
+</style>
+<h1 class="text-center text-success">Stduent Marks...</h1>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>School</th>
+        <th>Class</th>
+        <th>Section</th>
+        <th>Telugu </th>
+        <th>Hindi </th>
+        <th>English </th>
+        <th>Math </th>
+        <th>Science </th>
+        <th>Social </th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in students %}
+        <tr>
+        <td>{{ i.roll_number }}</td>
+        <td>{{ i.first_name }}</td>
+        <td>{{ i.last_name }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.school_name }}</td>
+        <td>{{ i.class_name }}</td>
+        <td>{{ i.section_name }}</td>
+        <td>{{ i.telugu_marks }}</td>
+        <td>{{ i.hindi_marks }}</td>
+        <td>{{ i.english_marks }}</td>
+        <td>{{ i.maths_marks }}</td>
+        <td>{{ i.science_marks }}</td>
+        <td>{{ i.social_marks }}</td>
+        <td>
+            <a href="/edit/ {{ i.id }}" class="btn btn-success">Edit</a>
+            <a href="/delete/{{ i.id }}" class="btn btn-danger">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/add_student/" class="btn btn-success">Add Student</a>
+</body>
+</html>
